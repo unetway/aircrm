@@ -1,0 +1,31 @@
+{
+  "name": "unetway/aircrm",
+  "description": "Удобная и современная CRM для эффективного управления сделками и задачами малого и среднего бизнеса.",
+  "keywords": [
+    "crm",
+    "deals",
+    "task",
+    "company",
+    "contact",
+    "email"
+  ],
+  "homepage": "https://github.com/unetway/aircrm",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "AirCRM",
+      "email": "support@aircrm.io"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "guzzlehttp/guzzle": "^6.3",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Unetway\\AirCrm\\": "src/"
+    }
+  }
+}
+
