@@ -26,6 +26,8 @@
     "psr-4": {
       "Unetway\\AirCrm\\": "src/"
     }
-  }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
 
