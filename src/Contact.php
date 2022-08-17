@@ -3,7 +3,7 @@
 namespace Unetway\AirCrm;
 
 
-class Contact extends AirCrm
+class Contact extends Essential
 {
     /**
      * @param array $params
@@ -11,7 +11,7 @@ class Contact extends AirCrm
      */
     public function create(array $params)
     {
-        $response = $this->client->post('contacts', [
+        $response = $this->aircrm->client->post('contacts', [
             'json' => $params
         ]);
 
@@ -25,7 +25,7 @@ class Contact extends AirCrm
      */
     public function update(int $id, array $params)
     {
-        $response = $this->client->post("contacts/$id", [
+        $response = $this->aircrm->client->post("contacts/$id", [
             'json' => $params
         ]);
 
@@ -37,7 +37,7 @@ class Contact extends AirCrm
      */
     public function fields()
     {
-        $response = $this->client->get('contacts/fields');
+        $response = $this->aircrm->client->get('contacts/fields');
 
         return json_decode($response->getBody()->getContents(), true);
     }
@@ -48,7 +48,7 @@ class Contact extends AirCrm
      */
     public function search(array $params)
     {
-        $response = $this->client->get('contacts/search', [
+        $response = $this->aircrm->client->get('contacts/search', [
             'query' => $params
         ]);
 

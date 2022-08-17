@@ -3,7 +3,7 @@
 namespace Unetway\AirCrm;
 
 
-class Pipelines extends AirCrm
+class Pipelines extends Essential
 {
 
     /**
@@ -11,7 +11,7 @@ class Pipelines extends AirCrm
      */
     public function get()
     {
-        $response = $this->client->get('pipelines');
+        $response = $this->aircrm->client->get('pipelines');
 
         return json_decode($response->getBody()->getContents(), true);
     }

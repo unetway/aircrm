@@ -3,7 +3,7 @@
 namespace Unetway\AirCrm;
 
 
-class Deals extends AirCrm
+class Deals extends Essential
 {
 
     /**
@@ -12,7 +12,7 @@ class Deals extends AirCrm
      */
     public function create(array $params)
     {
-        $response = $this->client->post('deals', [
+        $response = $this->aircrm->client->post('deals', [
             'json' => $params
         ]);
 
@@ -26,7 +26,7 @@ class Deals extends AirCrm
      */
     public function update(int $id, array $params)
     {
-        $response = $this->client->post("deals/$id", [
+        $response = $this->aircrm->client->post("deals/$id", [
             'json' => $params,
         ]);
 
@@ -38,7 +38,7 @@ class Deals extends AirCrm
      */
     public function fields()
     {
-        $response = $this->client->get('deals/fields');
+        $response = $this->aircrm->client->get('deals/fields');
 
         return json_decode($response->getBody()->getContents(), true);
     }

@@ -3,7 +3,7 @@
 namespace Unetway\AirCrm;
 
 
-class Task extends AirCrm
+class Task extends Essential
 {
     /**
      * @param array $params
@@ -11,7 +11,7 @@ class Task extends AirCrm
      */
     public function create(array $params)
     {
-        $response = $this->client->post('activities', [
+        $response = $this->aircrm->client->post('activities', [
             'json' => array_merge($params, [
                 'due_date' => date('Y-m-d'),
             ])
@@ -27,7 +27,7 @@ class Task extends AirCrm
      */
     public function update(int $id, array $params)
     {
-        $response = $this->client->post("activities/$id", [
+        $response = $this->aircrm->client->post("activities/$id", [
             'json' => $params
         ]);
 
@@ -39,7 +39,7 @@ class Task extends AirCrm
      */
     public function fields()
     {
-        $response = $this->client->get('activities/fields');
+        $response = $this->aircrm->client->get('activities/fields');
 
         return json_decode($response->getBody()->getContents(), true);
     }

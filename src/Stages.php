@@ -3,7 +3,7 @@
 namespace Unetway\AirCrm;
 
 
-class Stages extends AirCrm
+class Stages extends Essential
 {
 
     /**
@@ -11,7 +11,7 @@ class Stages extends AirCrm
      */
     public function get()
     {
-        $response = $this->client->get('pipeline-stages');
+        $response = $this->aircrm->client->get('pipeline-stages');
 
         return json_decode($response->getBody()->getContents(), true);
     }

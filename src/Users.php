@@ -3,14 +3,14 @@
 namespace Unetway\AirCrm;
 
 
-class Users extends AirCrm
+class Users extends Essential
 {
     /**
      * @return mixed
      */
     public function get()
     {
-        $response = $this->client->get('users');
+        $response = $this->aircrm->client->get('users');
 
         return json_decode($response->getBody()->getContents(), true);
     }
@@ -20,7 +20,7 @@ class Users extends AirCrm
      */
     public function me()
     {
-        $response = $this->client->get('me');
+        $response = $this->aircrm->client->get('me');
 
         return json_decode($response->getBody()->getContents(), true);
     }

@@ -11,7 +11,7 @@ class AirCrm
     /**
      * @var Client
      */
-    public $client;
+    private $client;
 
     /**
      * @var string
@@ -77,7 +77,7 @@ class AirCrm
      */
     public function deals()
     {
-        return new Deals();
+        return new Deals($this);
     }
 
     /**
@@ -85,7 +85,7 @@ class AirCrm
      */
     public function task()
     {
-        return new Task();
+        return new Task($this);
     }
 
     /**
@@ -93,7 +93,7 @@ class AirCrm
      */
     public function taskTypes()
     {
-        return new TaskTypes();
+        return new TaskTypes($this);
     }
 
     /**
@@ -101,7 +101,7 @@ class AirCrm
      */
     public function contact()
     {
-        return new Contact();
+        return new Contact($this);
     }
 
     /**
@@ -109,7 +109,7 @@ class AirCrm
      */
     public function company()
     {
-        return new Company();
+        return new Company($this);
     }
 
     /**
@@ -117,7 +117,7 @@ class AirCrm
      */
     public function stages()
     {
-        return new Stages();
+        return new Stages($this);
     }
 
     /**
@@ -125,7 +125,7 @@ class AirCrm
      */
     public function pipelines()
     {
-        return new Pipelines();
+        return new Pipelines($this);
     }
 
     /**
@@ -133,7 +133,7 @@ class AirCrm
      */
     public function users()
     {
-        return new Users();
+        return new Users($this);
     }
 
 }
