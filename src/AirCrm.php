@@ -11,7 +11,7 @@ class AirCrm
     /**
      * @var Client
      */
-    private $client;
+    public $client;
 
     /**
      * @var string
@@ -32,25 +32,25 @@ class AirCrm
     public function __construct($url, $token)
     {
         if (empty($url)) {
-            throw new Exception('Обязательный параметр url не найден.');
+            throw new Exception('Required url parameter not found.');
         }
 
         if (empty($token)) {
-            throw new Exception('Обязательный параметр token не найден.');
+            throw new Exception('Required token parameter not found.');
         }
 
         if (!$this->validateUrl($url)) {
-            throw new Exception('Указан неправильный адрес API.');
+            throw new Exception('Invalid API address specified.');
         }
 
         $this->url = $url;
         $this->token = $token;
 
         $this->client = new Client([
-            'base_uri' => $this->url . '/api/',
+            'base_uri' => 'https://' . $this->url . '/api/',
             'headers' => [
                 'Content-Type' => 'application/json; charset=utf-8',
-                'Token' => $this->token,
+                'Authorization' => 'Bearer ' . $this->token,
             ]
         ]);
     }
@@ -61,10 +61,6 @@ class AirCrm
      */
     private function validateUrl(string $domain)
     {
-        if (!filter_var('http://' . $domain, FILTER_VALIDATE_URL, FILTER_FLAG_HOST_REQUIRED)) {
-            return false;
-        }
-
         if (!preg_match('~^[0-9a-z-]+\.aircrm.io$~ui', $domain)) {
             return false;
         }
